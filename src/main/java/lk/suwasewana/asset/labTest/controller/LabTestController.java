@@ -84,8 +84,21 @@ public class LabTestController {
             if ( lastOneAccDepartment == null ) {
                 labTest.setCode(labTest.getDepartment().toString().concat("00001"));
             } else {
-//todo->
-                labTest.setCode();
+                String lastLabTestCode = lastOneAccDepartment.getCode().substring(0, 2);
+                int newCodeForLabTest = Integer.parseInt(lastLabTestCode) + 1;
+                String code = labTest.getDepartment().toString();
+                if ( newCodeForLabTest < 10 ) {
+                    code = code.concat("0000").concat(String.valueOf(newCodeForLabTest));
+                } else if ( newCodeForLabTest < 100 ) {
+                    code = code.concat("000").concat(String.valueOf(newCodeForLabTest));
+                } else if ( newCodeForLabTest < 1000 ) {
+                    code = code.concat("00").concat(String.valueOf(newCodeForLabTest));
+                } else if ( newCodeForLabTest < 10000 ) {
+                    code = code.concat("0").concat(String.valueOf(newCodeForLabTest));
+                } else if ( newCodeForLabTest < 100000 ) {
+                    code = code.concat(String.valueOf(newCodeForLabTest));
+                }
+                labTest.setCode(code);
             }
         }
         labTestService.persist(labTest);
