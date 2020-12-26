@@ -1,5 +1,6 @@
 package lk.suwasewana.asset.employee.entity;
 
+
 import lk.suwasewana.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

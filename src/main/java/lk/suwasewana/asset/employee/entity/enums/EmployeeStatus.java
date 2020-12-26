@@ -1,4 +1,4 @@
-package lk.suwasewana.asset.employee.entity.Enum;
+package lk.suwasewana.asset.employee.entity.enums;
 
 public enum EmployeeStatus {
     WORKING("Working"),
